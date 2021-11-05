@@ -6,10 +6,10 @@
 		*ngFor="let user of users; let i = index">
 	<div class="user">
 		<div class="userAvatar">
-			<p *ngIf="user.userType">Admin</p>
+			<p *ngIf="user.isAdmin">Admin</p>
 			<img src="../../../assets/user_avatar.png">
 			<span class="userStatus"
-			 		[style.background-color]="user.userStatus?'green':'red'">
+			 		[style.background-color]="user.isOnline?'green':'red'">
 			 	status
 			</span>
 			{{ user.nickName }}

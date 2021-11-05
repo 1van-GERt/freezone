@@ -6,8 +6,8 @@ export const UsersArray: UserModel[] =
 		nickName: "GERt",
 		userId: 0,
 		firstName: "Иван",
-		userType: true,
-		userStatus: true,
+		isAdmin: true,
+		isOnline: true,
 		lastName: "Петухов",
 		age: 29,
 		colleges:[
@@ -23,8 +23,8 @@ export const UsersArray: UserModel[] =
 		nickName: "qwerty",
 		userId: 1,
 		firstName: "Олег",
-		userType: false,
-		userStatus: false,
+		isAdmin: false,
+		isOnline: false,
 		lastName: "Дятлов",
 		age: 33,
 		colleges:[

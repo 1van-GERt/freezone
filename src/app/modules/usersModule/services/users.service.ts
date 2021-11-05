@@ -34,7 +34,7 @@ export class UsersService{
 	saveUserEdit(userId:number, userEditForm:FormGroup){
 		console.log(userEditForm.value)
 		this.usersList[userId].nickName = userEditForm.value.nickName;
-		this.usersList[userId].userType = userEditForm.value.userType;
+		this.usersList[userId].isAdmin = userEditForm.value.isAdmin;
 		this.usersList[userId].firstName = userEditForm.value.ferstName;
 		this.usersList[userId].lastName = userEditForm.value.lastName;
 		this.usersList[userId].age = userEditForm.value.age;

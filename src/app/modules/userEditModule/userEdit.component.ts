@@ -61,7 +61,7 @@ export class UserEditComponent implements  OnInit, AfterContentInit, OnDestroy{
 	ngAfterContentInit(){
 		this.userEditForm = new FormGroup({
 			'nickName': new FormControl(this.user.nickName,  Validators.required),
-			'userType': new FormControl(this.user.userType,  Validators.required),
+			'userType': new FormControl(this.user.isAdmin,  Validators.required),
 			'firstName': new FormControl(this.user.firstName,  Validators.required),
 			'lastName': new FormControl(this.user.lastName,  Validators.required),
 			'age': new FormControl(this.user.age,  Validators.required),
