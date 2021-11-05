@@ -14,12 +14,16 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 })
 
 export class AuthComponent {
-	
+
 
 	authForm: FormGroup = new FormGroup({
 		'login': new FormControl('', Validators.required),
 		'password': new FormControl('', Validators.required)
 	})
+
+  login() {
+    console.log(this.authForm.value);
+  }
 
 
 }

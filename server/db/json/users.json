@@ -1,0 +1,55 @@
+{
+  "data": [
+    {
+      "userId": "1",
+      "nickName": "user1",
+      "isAdmin": false,
+      "isOnline": false,
+      "firstName": "Петр",
+      "lastName": "Петров",
+      "age": "18",
+      "colleges": [
+        {
+          "collegeName": "",
+          "collegeSpeciality": "",
+          "collegeEntrance": "",
+          "collegeGraduation": ""
+        }
+      ]
+    },
+    {
+      "userId": "2",
+      "nickName": "user2",
+      "isAdmin": false,
+      "isOnline": true,
+      "firstName": "Дмитрий",
+      "lastName": "Дмитриев",
+      "age": "18",
+      "colleges": [
+        {
+          "collegeName": "",
+          "collegeSpeciality": "",
+          "collegeEntrance": "",
+          "collegeGraduation": ""
+        }
+      ]
+    },
+    {
+      "userId": "3",
+      "nickName": "user3",
+      "isAdmin": true,
+      "isOnline": true,
+      "firstName": "Петр",
+      "lastName": "Петров",
+      "age": "48",
+      "colleges": [
+        {
+          "collegeName": "",
+          "collegeSpeciality": "",
+          "collegeEntrance": "",
+          "collegeGraduation": ""
+        }
+      ]
+    }
+  ]
+}
