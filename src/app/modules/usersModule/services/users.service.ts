@@ -27,7 +27,7 @@ export class UsersService{
 			userCreateForm.value.collegeArray
 		))
 		this.userId++;
-		
+
 	}
 
 
@@ -35,9 +35,9 @@ export class UsersService{
 		console.log(userEditForm.value)
 		this.usersList[userId].nickName = userEditForm.value.nickName;
 		this.usersList[userId].userType = userEditForm.value.userType;
-		this.usersList[userId].ferstName = userEditForm.value.ferstName;
+		this.usersList[userId].firstName = userEditForm.value.ferstName;
 		this.usersList[userId].lastName = userEditForm.value.lastName;
 		this.usersList[userId].age = userEditForm.value.age;
-		this.usersList[userId].colleges = userEditForm.value.collegeArray;						
+		this.usersList[userId].colleges = userEditForm.value.collegeArray;
 	}
 }

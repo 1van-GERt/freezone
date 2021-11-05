@@ -1,11 +1,11 @@
 import { UserModel } from './models/user.model';
 
-export const UsersArray: UserModel[] = 
+export const UsersArray: UserModel[] =
 [
   {
 		nickName: "GERt",
 		userId: 0,
-		ferstName: "Иван",
+		firstName: "Иван",
 		userType: true,
 		userStatus: true,
 		lastName: "Петухов",
@@ -14,15 +14,15 @@ export const UsersArray: UserModel[] =
 			{
 				collegeName:'БГУИР',
 		   	collegeSpeciality:"КИС",
-			   collegeEntrance: 2010, 
+			   collegeEntrance: 2010,
 			   collegeGraduation: 2015
 			},
 		],
-  }, 
+  },
   {
 		nickName: "qwerty",
 		userId: 1,
-		ferstName: "Олег",
+		firstName: "Олег",
 		userType: false,
 		userStatus: false,
 		lastName: "Дятлов",
@@ -31,15 +31,15 @@ export const UsersArray: UserModel[] =
 			{
 				collegeName:'БГУИР',
 		   	collegeSpeciality:"КИС",
-			   collegeEntrance: 2010, 
+			   collegeEntrance: 2010,
 			   collegeGraduation: 2015
 			},
 			{
 				collegeName:'БГУ',
 		   	collegeSpeciality:"КрИС",
-			   collegeEntrance: 205, 
+			   collegeEntrance: 205,
 			   collegeGraduation: 2010
-			},			
+			},
 		],
-  },      
+  },
 ];

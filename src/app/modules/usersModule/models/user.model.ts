@@ -5,7 +5,7 @@ export class UserModel{
 	public nickName!:string;
 	public userType: boolean = false;
 	public userStatus: boolean = false;
-	public ferstName!: string;
+	public firstName!: string;
 	public lastName!: string;
 	public age!: number;
 /*	public collegeName!: string;
@@ -14,14 +14,14 @@ export class UserModel{
 	public collegeGraduation!: number;*/
 
 	public colleges: CollegeModel[] = [];
-	
+
 
 	constructor(
 			userId: number,
-			nickName:string,			
+			nickName:string,
 			userType: boolean,
 			userStatus: boolean,
-			ferstName: string,
+			firstName: string,
 			lastName: string,
 			age: number,
 			colleges: any,
@@ -33,7 +33,7 @@ export class UserModel{
 			this.userId = userId;
 			this.nickName = nickName;
 			this.userType = userType;
-			this.ferstName = ferstName;
+			this.firstName = firstName;
 			this.lastName = lastName;
 			this.age = age;
 			this.colleges = colleges;

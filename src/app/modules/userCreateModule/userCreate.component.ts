@@ -2,12 +2,12 @@ import { Component,
 			OnInit } from '@angular/core';
 import { UserModel } from './../usersModule/models/user.model';
 import {	FormGroup,
-			FormControl, 
-			Validators, 
+			FormControl,
+			Validators,
 			FormArray} from '@angular/forms';
 import { UsersService } from './../usersModule/services/users.service';
-	
-import {Router} from '@angular/router';			
+
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -31,17 +31,17 @@ export class UserCreateComponent implements OnInit {
 	userCreateForm: FormGroup = new FormGroup({
 		'nickName': new FormControl('',  Validators.required),
 		'userType': new FormControl(false,  Validators.required),
-		'ferstName': new FormControl('',  Validators.required),
+		'firstName': new FormControl('',  Validators.required),
 		'lastName': new FormControl('',  Validators.required),
 		'age': new FormControl('',  Validators.required),
 		'collegeArray': new FormArray([
 			new FormGroup({
 					'collegeName': new FormControl('',  Validators.required),
-					'collegeSpeciality': new FormControl('',  Validators.required),	
+					'collegeSpeciality': new FormControl('',  Validators.required),
 					'collegeEntrance': new FormControl('',  Validators.required),
 					'collegeGraduation': new FormControl('',  Validators.required),
-				} , Validators.required),			
-		]),								
+				} , Validators.required),
+		]),
 	});
 
 
@@ -49,7 +49,7 @@ export class UserCreateComponent implements OnInit {
 		 (<FormArray>this.userCreateForm.controls["collegeArray"])
 		 .push(new FormGroup({
 					'collegeName': new FormControl('',  Validators.required),
-					'collegeSpeciality': new FormControl('',  Validators.required),	
+					'collegeSpeciality': new FormControl('',  Validators.required),
 					'collegeEntrance': new FormControl('',  Validators.required),
 					'collegeGraduation': new FormControl('',  Validators.required),
 				}),);
@@ -63,5 +63,5 @@ export class UserCreateComponent implements OnInit {
 		console.log(this.userCreateForm, )
 		this.usersService.addUser(this.userCreateForm)
 		this.router.navigate(['users'])
-	}	
+	}
 }

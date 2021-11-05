@@ -3,16 +3,16 @@ import { Component,
 			AfterContentInit,
 			OnDestroy } from '@angular/core';
 import {	FormGroup,
-			FormControl, 
-			Validators, 
+			FormControl,
+			Validators,
 			FormArray} from '@angular/forms';
-import { UsersService } from './../usersModule/services/users.service';
-import { UserModel } from './../usersModule/models/user.model';
-import { CollegeModel } from './../usersModule/models/college.model'
+import { UsersService } from '../usersModule/services/users.service';
+import { UserModel } from '../usersModule/models/user.model';
+import { CollegeModel } from '../usersModule/models/college.model'
 
 
 import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';			
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -31,7 +31,7 @@ export class UserEditComponent implements  OnInit, AfterContentInit, OnDestroy{
 	public nickName!:string;
 	public userType: boolean = false;
 	public userStatus: boolean = false;
-	public ferstName!: string;
+	public firstName!: string;
 	public lastName!: string;
 	public age!: number;
 /*	public collegeName!: string;
@@ -39,7 +39,7 @@ export class UserEditComponent implements  OnInit, AfterContentInit, OnDestroy{
 	public collegeEntrance!: number;
 	public collegeGraduation!: number;*/
 
-	public colleges: CollegeModel[] = [];	
+	public colleges: CollegeModel[] = [];
 
 	public userEditForm!: FormGroup;
 
@@ -55,18 +55,18 @@ export class UserEditComponent implements  OnInit, AfterContentInit, OnDestroy{
  		this.subscriptions.add(this.activateRoute.params.subscribe(params=>this.userId=params['id']));
 
  		this.user = this.users[this.userId];
- 		
+
 	}
 
 	ngAfterContentInit(){
 		this.userEditForm = new FormGroup({
 			'nickName': new FormControl(this.user.nickName,  Validators.required),
 			'userType': new FormControl(this.user.userType,  Validators.required),
-			'ferstName': new FormControl(this.user.ferstName,  Validators.required),
+			'firstName': new FormControl(this.user.firstName,  Validators.required),
 			'lastName': new FormControl(this.user.lastName,  Validators.required),
 			'age': new FormControl(this.user.age,  Validators.required),
 			'collegeArray': new FormArray([])
-		});		
+		});
 		this.collegeArrayPush()
 	}
 
@@ -77,18 +77,18 @@ export class UserEditComponent implements  OnInit, AfterContentInit, OnDestroy{
 		   .push(new FormGroup({
 
 				'collegeName': new FormControl(e.collegeName,  Validators.required),
-				'collegeSpeciality': new FormControl(2,  Validators.required),	
+				'collegeSpeciality': new FormControl(2,  Validators.required),
 				'collegeEntrance': new FormControl(e.collegeEntrance,  Validators.required),
 				'collegeGraduation': new FormControl(e.collegeGraduation,  Validators.required),
-				}),))	
+				}),))
 
-	}	
+	}
 
 	addCollege(){
 		 (<FormArray>this.userEditForm.controls["collegeArray"])
 		 .push(new FormGroup({
 					'collegeName': new FormControl('',  Validators.required),
-					'collegeSpeciality': new FormControl('',  Validators.required),	
+					'collegeSpeciality': new FormControl('',  Validators.required),
 					'collegeEntrance': new FormControl('',  Validators.required),
 					'collegeGraduation': new FormControl('',  Validators.required),
 				}),);
