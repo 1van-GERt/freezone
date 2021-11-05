@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import {	FormGroup,
 			FormControl,
-			Validators } from '@angular/forms';
+			Validators, } from '@angular/forms';
+
+import {MatFormFieldModule} from '@angular/material/form-field';			
 
 
 @Component({
