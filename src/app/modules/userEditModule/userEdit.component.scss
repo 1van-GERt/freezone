@@ -1,0 +1,27 @@
+.userInfo {
+	margin: 20px;
+}
+.userInfoFooter {
+	display: flex;
+	text-align: center;
+	border-bottom: 1px solid black;
+}
+.userAvatar {
+	&>img{
+		width: 150px;
+		height: 150px;
+		border: 1px solid red;
+	}
+
+}
+.userStatus {
+	font-size: 0;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+}
+.userName {}
+.colleges {}
+.collegesItem {
+	padding-bottom: 20px;
+}

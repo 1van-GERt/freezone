@@ -1,0 +1,31 @@
+<div>
+	<button routerLink="/users/create">Создать пользователя</button>
+</div>
+
+<div class="usersList" 
+		*ngFor="let user of users; let i = index">
+	<div class="user">
+		<div class="userAvatar">
+			<p *ngIf="user.userType">Admin</p>
+			<img src="../../../assets/user_avatar.png">
+			<span class="userStatus"
+			 		[style.background-color]="user.userStatus?'green':'red'">
+			 	status
+			</span>
+			{{ user.nickName }}
+		</div>
+		<div class="userName">
+			<p>{{ user.ferstName }}</p>
+			<p>{{ user.lastName }}</p>
+			<p>{{ user.age }} лет</p>
+		</div>
+		<div class="userCollege" *ngFor="let college of user.colleges; let i = index">
+
+			<p>Образование: {{ college.collegeName }}, {{ college.collegeGraduation }} г.</p>
+<!-- 			<p>Специальность: {{ college.collegeSpeciality }}</p>
+			<p>Год окончания: {{ college.collegeGraduation }} лет</p> -->
+		</div>
+		<button [routerLink]="['/users/info', user.userId]">Подробнее</button>
+	</div>
+
+</div>

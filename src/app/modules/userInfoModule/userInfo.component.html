@@ -1,0 +1,38 @@
+<div class="userInfo">
+	<div class="userInfoFooter">
+		<div class="userAvatar">
+			<p *ngIf="user.userType">Admin</p>
+			<img src="" alt="avatar">
+			<p>
+				<span class="userStatus"
+			 		[style.background-color]="user.userStatus?'green':'red'">
+			 			status
+				</span>
+				{{ user.nickName }}
+			</p>
+		</div>
+	
+		<div class="userName">
+			<h2>
+				{{ user.ferstName }}
+				{{ user.lastName }}
+			</h2>
+			<h3>{{ user.age }} лет</h3>
+		</div>
+		<button routerLink="/users">Вернуться к списку пользователей</button>
+		<button [routerLink]="['/users/edit', user.userId]">Редактировать</button>
+		<button >Удалить</button>
+	</div>
+	<div class="colleges">
+		<h3>
+				Образование
+		</h3>
+		<div class="collegesItem" *ngFor="let college of user.colleges; let i = index">
+
+			<p>Учереждение: {{ college.collegeName }}</p>
+			<p>Специальность: {{ college.collegeSpeciality }}</p>
+			<p>Год поступления: {{ college.collegeEntrance }} год</p>
+			<p>Год выпуска: {{ college.collegeGraduation }} год</p>
+		</div>
+	</div>
+</div>

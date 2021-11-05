@@ -1,0 +1,14 @@
+.header{
+	
+	display: flex;
+	z-index: 1001;
+	padding-bottom: 10px;
+	background: #ff0000a3;
+	background: linear-gradient(to top right, #ff0000, 70%, black);
+
+}
+
+.logo{
+	display: flex;
+   align-items: center;
+}
