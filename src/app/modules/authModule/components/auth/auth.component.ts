@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import {	FormGroup,
 			FormControl,
 			Validators, } from '@angular/forms';
-
-import {MatFormFieldModule} from '@angular/material/form-field';			
+import {LoginApiService} from "../../services/loginApi.service";
 
 
 @Component({
@@ -15,6 +14,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 
 export class AuthComponent {
 
+  constructor(private loginService: LoginApiService) {}
 
 	authForm: FormGroup = new FormGroup({
 		'login': new FormControl('', Validators.required),
@@ -22,7 +22,7 @@ export class AuthComponent {
 	})
 
   login() {
-    console.log(this.authForm.value);
+    this.loginService.authUser(this.authForm.value).subscribe(value => console.log(value));
   }
 
 

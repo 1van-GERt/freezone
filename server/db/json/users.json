@@ -3,6 +3,7 @@
     {
       "userId": "1",
       "nickName": "user1",
+      "password": "password1",
       "isAdmin": false,
       "isOnline": false,
       "firstName": "Петр",
@@ -20,6 +21,7 @@
     {
       "userId": "2",
       "nickName": "user2",
+      "password": "password2",
       "isAdmin": false,
       "isOnline": true,
       "firstName": "Дмитрий",
@@ -37,6 +39,7 @@
     {
       "userId": "3",
       "nickName": "user3",
+      "password": "password3",
       "isAdmin": true,
       "isOnline": true,
       "firstName": "Петр",
