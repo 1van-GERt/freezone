@@ -6,12 +6,12 @@
 
 	<div class="form-group">
 	   <input class="form-control" name="name" formControlName="nickName"  />
-	    
+
 	   <div class="alert alert-danger"
-	       *ngIf="userEditForm.controls['nickName'].invalid && 
+	       *ngIf="userEditForm.controls['nickName'].invalid &&
 	       userEditForm.controls['nickName'].touched">
 	       	Не указан nickName
-	   </div>	   
+	   </div>
 	</div>
 
 	<div class="form-group">
@@ -21,27 +21,27 @@
 	    	<option value="false">User</option>
 	    </select>
 	   <div class="alert alert-danger"
-	       *ngIf="userEditForm.controls['userType'].invalid && 
+	       *ngIf="userEditForm.controls['userType'].invalid &&
 	       userEditForm.controls['userType'].touched">
 	       	Не указан userType
-	   </div>	   
+	   </div>
 	</div>
 
 	<div class="form-group">
 	   <input class="form-control"  formControlName="ferstName" placeholder="ferstName" />
-	    
+
 	   <div class="alert alert-danger"
-	       *ngIf="userEditForm.controls['ferstName'].invalid && 
-	       userEditForm.controls['ferstName'].touched">
-	       	Не указан ferstName
-	   </div>	   
+	       *ngIf="userEditForm.controls['firstName'].invalid &&
+	       userEditForm.controls['firstName'].touched">
+	       	Не указан firstName
+	   </div>
 	</div>
 
 	<div class="form-group">
 	   <input class="form-control"  formControlName="lastName" placeholder="lastName" />
-	    
+
 	   <div class="alert alert-danger"
-	       *ngIf="userEditForm.controls['lastName'].invalid && 
+	       *ngIf="userEditForm.controls['lastName'].invalid &&
 	       userEditForm.controls['lastName'].touched">
 	       	Не указан lastName
 	   </div>
@@ -49,40 +49,40 @@
 
 	<div class="form-group">
 	   <input class="form-control"  formControlName="age" placeholder="age" />
-	    
+
 	   <div class="alert alert-danger"
-	       *ngIf="userEditForm.controls['age'].invalid && 
+	       *ngIf="userEditForm.controls['age'].invalid &&
 	       userEditForm.controls['age'].touched">
 	       	Не указан age
-	   </div>		   	   
+	   </div>
 	</div>
-	
+
 
 
 	<div formArrayName="collegeArray">
-		
+
 		<div class="form-group"
 		*ngFor="let college of userEditForm.value.collegeArray; let n = index">
 			<div [formGroupName]="n">
 				<div *ngFor="let e of college | keyvalue">
 
-					 <input class="form-control" formControlName="{{e.key}}" placeholder="{{e.key}}"/>	
+					 <input class="form-control" formControlName="{{e.key}}" placeholder="{{e.key}}"/>
 				</div>
 			</div>
 			<div class="alert alert-danger"
-		       *ngIf="userEditForm.controls['collegeArray'].invalid && 
+		       *ngIf="userEditForm.controls['collegeArray'].invalid &&
 		       userEditForm.controls['collegeArray'].touched">
 	       	Не заполненна форма про образование
-	  		</div>		
+	  		</div>
 			<button (click)="addCollege()">+</button>
 			<button *ngIf="n!=0"(click)="removeCollege(n)">-</button>
 		</div>
 
-	</div>	
+	</div>
 
-	<button class="btn btn-default" 
+	<button class="btn btn-default"
 				[disabled]="userEditForm.invalid"
 				(click)="saveUserEdit()">
 	            Сохранить
-	</button>						
+	</button>
 </form>
