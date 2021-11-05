@@ -9,6 +9,7 @@ import { UsersModule } from './modules/usersModule/users.module';
 import { UserCreateModule } from './modules/userCreateModule/userCreate.module';
 import { UserInfoModule } from './modules/userInfoModule/userInfo.module';
 import { UserEditModule } from './modules/userEditModule/userEdit.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { UserEditModule } from './modules/userEditModule/userEdit.module';
     UserCreateModule,
     UserInfoModule,
     UserEditModule,
+    BrowserAnimationsModule,
 
   ],
   providers: [],
