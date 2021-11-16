@@ -5,6 +5,7 @@ const files = fs.readdirSync(dbFilesDir);
 
 let dbData = {};
 files.forEach((fileName) => {
+
   const content = require(path.join(dbFilesDir, fileName));
   Object.assign(dbData, content);
 });

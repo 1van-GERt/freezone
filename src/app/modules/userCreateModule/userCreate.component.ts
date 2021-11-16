@@ -46,6 +46,7 @@ export class UserCreateComponent implements OnInit {
 
 
 	addCollege(){
+		console.log('UserCreateComponent');
 		 (<FormArray>this.userCreateForm.controls["collegeArray"])
 		 .push(new FormGroup({
 					'collegeName': new FormControl('',  Validators.required),
