@@ -1,0 +1,39 @@
+{
+  "HEADER": {
+    "BTM_SINGOUT": "Выйти",
+    "LANG": "язык",
+    "BTM_LANG": {
+      "RU": "Русский",
+      "EN": "Английский"
+    }
+
+  },
+  "AUTH": {
+    "LOGIN": "Логин",
+    "PASSWORD": "Пароль",
+    "BTM_SINGIN": "Войти",
+    "AUTHERORMESSAGE": "Неверный логин или пароль"
+  },
+
+  "CREATEUSER": {
+    "NICKNAME": "Логин",
+    "PASSWORD": "Пароль",
+    "USERTYPE": "Тип пользователя",
+    "ADMIN": "Админ",
+    "USER": "Пользователь",
+    "FIRSTNAME": "Имя",
+    "LASTNAME": "Фамилия",
+    "AGE": "Возраст",
+    "collegeName": "Название коледжа",
+    "collegeSpeciality": "Специальность",
+    "collegeGraduation": "Год окончания коледжа",
+    "collegeEntrance" :"Год поступления в коледж",
+    "FORMERORMESSAGE": "Форма не заполнена",
+    "INPUTERORMESSAGE": "не указан",
+    "BTM_CREATEUSER": "Создать пользователя"
+  },
+  "EDITUSER": {
+    "BTM_EDITUSER": "Сохранить изменения",
+    "BTM_CANSEL" : "Отмена"
+  }
+}

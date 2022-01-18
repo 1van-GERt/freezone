@@ -7,19 +7,20 @@ import { MatInputModule } from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
- 
+import {TranslateModule} from "@ngx-translate/core";
+
 @NgModule({
 
-   imports: [  BrowserModule, 
-				   FormsModule,
-				   ReactiveFormsModule,
-				   MatFormFieldModule,
-				   MatInputModule,
-				   MatButtonModule,
-				   MatSelectModule,
-				   MatDatepickerModule],
+    imports: [BrowserModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+        MatSelectModule,
+        MatDatepickerModule, TranslateModule],
    declarations: [ UserCreateComponent],
-   exports: [ UserCreateComponent] 
+   exports: [ UserCreateComponent]
 
 })
 

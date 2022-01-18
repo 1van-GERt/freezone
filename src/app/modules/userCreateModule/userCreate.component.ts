@@ -5,7 +5,7 @@ import {	FormGroup,
 			FormControl,
 			Validators,
 			FormArray} from '@angular/forms';
-import { UsersService } from './../usersModule/services/users.service';
+import { UserCreateService } from './services/userCreate.service';
 
 import {Router} from '@angular/router';
 
@@ -24,12 +24,13 @@ export class UserCreateComponent implements OnInit {
 	}
 	public test: number = 22;
 	constructor(
-		public usersService: UsersService,
+		public userCreateService: UserCreateService,
 		public router: Router,
 	){};
 
 	userCreateForm: FormGroup = new FormGroup({
 		'nickName': new FormControl('',  Validators.required),
+		'password': new FormControl('',  Validators.required),
 		'userType': new FormControl(false,  Validators.required),
 		'firstName': new FormControl('',  Validators.required),
 		'lastName': new FormControl('',  Validators.required),
@@ -61,8 +62,8 @@ export class UserCreateComponent implements OnInit {
 	}
 
 	saveUser(){
-		console.log(this.userCreateForm, )
-		this.usersService.addUser(this.userCreateForm)
-		this.router.navigate(['users'])
+		console.log(this.userCreateForm.value )
+		this.userCreateService.postUser(this.userCreateForm.value).subscribe(value => {console.log('addUer',value)})	
+
 	}
 }

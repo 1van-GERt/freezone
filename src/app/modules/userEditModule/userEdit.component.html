@@ -1,88 +1,104 @@
+
 Редактирование
 
 
 
 <form [formGroup]="userEditForm" novalidate>
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'CREATEUSER.NICKNAME' | translate }}:</mat-label>
+      <input matInput  formControlName="nickName">
 
-	<div class="form-group">
-	   <input class="form-control" name="name" formControlName="nickName"  />
-
-	   <div class="alert alert-danger"
-	       *ngIf="userEditForm.controls['nickName'].invalid &&
+    </mat-form-field>
+  </p>
+  <p class="alert alert-danger"
+     *ngIf="userEditForm.controls['nickName'].invalid &&
 	       userEditForm.controls['nickName'].touched">
-	       	Не указан nickName
-	   </div>
-	</div>
+    {{ 'CREATEUSER.NICKNAME' | translate }} {{ 'CREATEUSER.INPUTERORMESSAGE' | translate }}
+  </p>
 
-	<div class="form-group">
-	  <!--  <input class="form-control" name="type" formControlName="userType" placeholder="userType" /> -->
+
+<!--	<div class="form-group">
+	  &lt;!&ndash;  <input class="form-control" name="type" formControlName="userType" placeholder="userType" /> &ndash;&gt;
 	    <select name="type" formControlName="userType" placeholder="userType">
 	    	<option value="true">Admin</option>
 	    	<option value="false">User</option>
 	    </select>
-	   <div class="alert alert-danger"
-	       *ngIf="userEditForm.controls['userType'].invalid &&
-	       userEditForm.controls['userType'].touched">
-	       	Не указан userType
-	   </div>
-	</div>
+	</div>-->
+  <mat-form-field appearance="fill">
+    <mat-label>{{ 'CREATEUSER.USERTYPE' | translate }}</mat-label>
+    <mat-select  formControlName="userType" placeholder="userType">
+      <mat-option value="true">{{ 'CREATEUSER.ADMIN' | translate }}</mat-option>
+      <mat-option value="false">{{ 'CREATEUSER.USER' | translate }}</mat-option>
+    </mat-select>
+  </mat-form-field>
 
-	<div class="form-group">
-	   <input class="form-control"  formControlName="ferstName" placeholder="ferstName" />
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'CREATEUSER.FIRSTNAME' | translate }}:</mat-label>
+      <input matInput placeholder="{{ 'CREATEUSER.FIRSTNAME' | translate }}"  formControlName="firstName">
 
-	   <div class="alert alert-danger"
-	       *ngIf="userEditForm.controls['firstName'].invalid &&
+    </mat-form-field>
+  </p>
+  <p class="alert alert-danger"
+     *ngIf="userEditForm.controls['firstName'].invalid &&
 	       userEditForm.controls['firstName'].touched">
-	       	Не указан firstName
-	   </div>
-	</div>
+    {{ 'CREATEUSER.FIRSTNAME' | translate }} {{ 'CREATEUSER.INPUTERORMESSAGE' | translate }}
+  </p>
 
-	<div class="form-group">
-	   <input class="form-control"  formControlName="lastName" placeholder="lastName" />
 
-	   <div class="alert alert-danger"
-	       *ngIf="userEditForm.controls['lastName'].invalid &&
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'CREATEUSER.LASTNAME' | translate }}:</mat-label>
+      <input matInput placeholder="{{ 'CREATEUSER.LASTNAME' | translate }}"  formControlName="lastName">
+
+    </mat-form-field>
+  </p>
+  <p class="alert alert-danger"
+     *ngIf="userEditForm.controls['lastName'].invalid &&
 	       userEditForm.controls['lastName'].touched">
-	       	Не указан lastName
-	   </div>
-	</div>
+    {{ 'CREATEUSER.LASTNAME' | translate }} {{ 'CREATEUSER.INPUTERORMESSAGE' | translate }}
+  </p>
 
-	<div class="form-group">
-	   <input class="form-control"  formControlName="age" placeholder="age" />
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'CREATEUSER.AGE' | translate }}:</mat-label>
+      <input matInput placeholder="{{ 'CREATEUSER.AGE' | translate }}"  formControlName="age">
 
-	   <div class="alert alert-danger"
-	       *ngIf="userEditForm.controls['age'].invalid &&
+    </mat-form-field>
+  </p>
+  <p class="alert alert-danger"
+     *ngIf="userEditForm.controls['age'].invalid &&
 	       userEditForm.controls['age'].touched">
-	       	Не указан age
-	   </div>
-	</div>
+    {{ 'CREATEUSER.AGE' | translate }} {{ 'CREATEUSER.INPUTERORMESSAGE' | translate }}
+  </p>
 
 
 
-	<div formArrayName="collegeArray">
+  <div formArrayName="collegeArray">
 
-		<div class="form-group"
-		*ngFor="let college of userEditForm.value.collegeArray; let n = index">
-			<div [formGroupName]="n">
-				<div *ngFor="let e of college | keyvalue">
+    <div class="form-group"
+         *ngFor="let college of userEditForm.value.collegeArray; let n = index">
+      <div [formGroupName]="n">
+        <div *ngFor="let e of college | keyvalue">
 
-					 <input class="form-control" formControlName="{{e.key}}" placeholder="{{e.key}}"/>
-				</div>
-			</div>
-			<div class="alert alert-danger"
-		       *ngIf="userEditForm.controls['collegeArray'].invalid &&
-		       userEditForm.controls['collegeArray'].touched">
-	       	Не заполненна форма про образование
-	  		</div>
-			<button (click)="addCollege()">+</button>
-			<button *ngIf="n!=0"(click)="removeCollege(n)">-</button>
-		</div>
+          <input class="form-control" formControlName="{{e.key}}" placeholder="{{ 'CREATEUSER.'+ e.key | translate }}"/>
+        </div>
+      </div>
 
-	</div>
+      <button (click)="addCollege()">+</button>
+      <button *ngIf="n!=0"(click)="removeCollege(n)">-</button>
+    </div>
 
-	<button class="btn btn-default"
+  </div>
+
+	<button mat-stroked-button
 				[disabled]="userEditForm.invalid"
 				(click)="saveUserEdit()">
-	            Сохранить
+    {{ 'EDITUSER.BTM_EDITUSER' | translate }}
+	</button>
+	<button mat-stroked-button
+		[routerLink]="['/users/edit', user.userId]">
+    {{ 'EDITUSER.BTM_CANSEL' | translate }}
 	</button>
 </form>

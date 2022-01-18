@@ -20,8 +20,8 @@
 			<h3>{{ user.age }} лет</h3>
 		</div>
 		<button routerLink="/users">Вернуться к списку пользователей</button>
-		<button [routerLink]="['/users/edit', user.userId]">Редактировать</button>
-		<button >Удалить</button>
+		<button *ngIf="this.isAdmin" [routerLink]="['/users/edit', user.userId]">Редактировать</button>
+		<button (click)="delUser()" *ngIf="this.isAdmin">Удалить</button>
 	</div>
 	<div class="colleges">
 		<h3>

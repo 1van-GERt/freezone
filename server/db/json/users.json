@@ -11,10 +11,10 @@
       "age": "18",
       "colleges": [
         {
-          "collegeName": "",
-          "collegeSpeciality": "",
-          "collegeEntrance": "",
-          "collegeGraduation": ""
+          "collegeName": "1",
+          "collegeSpeciality": "11",
+          "collegeEntrance": "111",
+          "collegeGraduation": "1111"
         }
       ]
     },
@@ -29,10 +29,10 @@
       "age": "18",
       "colleges": [
         {
-          "collegeName": "",
-          "collegeSpeciality": "",
-          "collegeEntrance": "",
-          "collegeGraduation": ""
+          "collegeName": "2",
+          "collegeSpeciality": "22",
+          "collegeEntrance": "222",
+          "collegeGraduation": "2222"
         }
       ]
     },
@@ -47,10 +47,10 @@
       "age": "48",
       "colleges": [
         {
-          "collegeName": "",
-          "collegeSpeciality": "",
-          "collegeEntrance": "",
-          "collegeGraduation": ""
+          "collegeName": "3",
+          "collegeSpeciality": "33",
+          "collegeEntrance": "333",
+          "collegeGraduation": "3333"
         }
       ]
     }

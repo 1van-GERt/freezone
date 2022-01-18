@@ -1,0 +1,42 @@
+
+{
+  "HEADER": {
+    "BTM_SINGOUT": "Sing out",
+    "LANG": "language",
+    "BTM_LANG": {
+      "RU": "Russian",
+      "EN": "English"
+    }
+
+  },
+  "AUTH": {
+    "LOGIN": "Login",
+    "PASSWORD": "Password",
+    "BTM_SINGIN": "Sing in",
+    "AUTHERORMESSAGE": "Eror login or password"
+  },
+
+  "CREATEUSER": {
+    "NICKNAME": "Nickname",
+    "PASSWORD": "Password",
+    "USERTYPE": "User Type",
+    "ADMIN": "Admin",
+    "USER": "User",
+    "FIRSTNAME": "First name",
+    "LASTNAME": "Last name",
+    "AGE": "Age",
+    "collegeName": "College name",
+    "collegeSpeciality": "College speciality",
+    "collegeGraduation": "College graduation",
+    "collegeEntrance" :"College entrance",
+    "FORMERORMESSAGE": "Form not completed",
+    "INPUTERORMESSAGE": "not completed",
+    "BTM_CREATEUSER": "Create user"
+  },
+  "EDITUSER": {
+    "BTM_EDITUSER": "Save edit",
+    "BTM_CANSEL" : "Cansel"
+  }
+
+}
+

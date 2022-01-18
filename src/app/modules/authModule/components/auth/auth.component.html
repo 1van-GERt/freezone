@@ -1,19 +1,21 @@
-<div>
-	<form [formGroup]="authForm">
-    <p>
-      <mat-form-field appearance="outline">
-        <mat-label>login:</mat-label>
-        <input matInput placeholder="login"  [formControlName]="'login'">
-      </mat-form-field>
-    </p>
+<form class="authForm" [formGroup]="authForm">
 
-  <p>
+      <mat-form-field appearance="outline">
+        <mat-label>{{ 'AUTH.LOGIN' | translate }}:</mat-label>
+        <input matInput placeholder="{{ 'AUTH.LOGIN' | translate }}"  [formControlName]="'login'">
+      </mat-form-field>
+
+
+
     <mat-form-field appearance="outline">
-      <mat-label>password:</mat-label>
-      <input matInput placeholder="password" type="password"  [formControlName]="'password'">
+      <mat-label>{{ 'AUTH.PASSWORD' | translate }}:</mat-label>
+      <input matInput placeholder="{{ 'AUTH.PASSWORD' | translate }}" type="password"  [formControlName]="'password'">
     </mat-form-field>
-  </p>
-  <button mat-stroked-button [disabled]="authForm.invalid" (click)="login()">Сохранить</button>
-	</form>
-</div>
+
+
+  <h3 *ngIf="isShowAuthErorMessage">{{ 'AUTH.AUTHERORMESSAGE' | translate }}</h3>
+
+  <button mat-stroked-button [disabled]="authForm.invalid" (click)="login()">{{ 'AUTH.BTM_SINGIN' | translate }}</button>
+</form>
+
 

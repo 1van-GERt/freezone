@@ -7,12 +7,14 @@ import {	FormGroup,
 			Validators,
 			FormArray} from '@angular/forms';
 import { UsersService } from '../usersModule/services/users.service';
+import { UserEditService } from './services/userEdit.service';
 import { UserModel } from '../usersModule/models/user.model';
 import { CollegeModel } from '../usersModule/models/college.model'
 
 
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { Router} from '@angular/router';
 
 
 @Component({
@@ -34,42 +36,61 @@ export class UserEditComponent implements  OnInit, AfterContentInit, OnDestroy{
 	public firstName!: string;
 	public lastName!: string;
 	public age!: number;
-/*	public collegeName!: string;
-	public collegeSpeciality!: string;
-	public collegeEntrance!: number;
-	public collegeGraduation!: number;*/
+
+
 
 	public colleges: CollegeModel[] = [];
 
 	public userEditForm!: FormGroup;
 
+
+	public testForm!: FormGroup;
+	public testKey!: string;
+
+
 	constructor(
 		private activateRoute: ActivatedRoute,
 		public usersService: UsersService,
+		public userEditService: UserEditService,
+		public router: Router,
 	){}
 
 
-
 	ngOnInit(){
-		this.users = this.usersService.usersList;
+		this.testKey = this.userEditService.testKey;
+/*		this.users = this.usersService.usersList;
  		this.subscriptions.add(this.activateRoute.params.subscribe(params=>this.userId=params['id']));
+ 		this.user = this.users[this.userId];*/
 
- 		this.user = this.users[this.userId];
+		this.usersService.getUsersList().subscribe((value: UserModel[]) =>{
+			this.users = value;	
 
-	}
+ 			this.subscriptions.add(this.activateRoute.params.subscribe(params => {
+				this.userId = params['id'];
+				this.user = this.users.find(user => user.userId === this.userId) as UserModel;
 
-	ngAfterContentInit(){
-		this.userEditForm = new FormGroup({
-			'nickName': new FormControl(this.user.nickName,  Validators.required),
-			'userType': new FormControl(this.user.isAdmin,  Validators.required),
-			'firstName': new FormControl(this.user.firstName,  Validators.required),
-			'lastName': new FormControl(this.user.lastName,  Validators.required),
-			'age': new FormControl(this.user.age,  Validators.required),
-			'collegeArray': new FormArray([])
+	 			console.log(this.user)
+
+			this.userEditForm = new FormGroup({
+				'nickName': new FormControl(this.user.nickName,  Validators.required),
+				'userType': new FormControl(this.user.isAdmin,  Validators.required),
+				'firstName': new FormControl(this.user.firstName,  Validators.required),
+				'lastName': new FormControl(this.user.lastName,  Validators.required),
+				'age': new FormControl(this.user.age,  Validators.required),
+				'collegeArray': new FormArray([])
+			});
+			this.collegeArrayPush()
+
+	 		}));
 		});
-		this.collegeArrayPush()
+		console.log('2',this.user)
+
+
 	}
 
+	ngDoCheck(){}
+
+	ngAfterContentInit(){}
 
 
 	collegeArrayPush(){
@@ -99,7 +120,12 @@ export class UserEditComponent implements  OnInit, AfterContentInit, OnDestroy{
 	}
 
 	saveUserEdit(){
-		this.usersService.saveUserEdit(this.user.userId, this.userEditForm);
+		console.log('userEditForm:', this.userEditForm.value, 'id:', this.userId)
+
+				this.userEditService.editUser(this.userEditForm.value, this.userId).subscribe(value => {console.log('saveUserEdit',value)}		
+		);
+		this.router.navigate(['users']);
+		this.usersService.getUsersList();
 	}
 
 	ngOnDestroy(){

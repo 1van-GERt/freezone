@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms'
 import { UserModel } from '../models/user.model';
-import { UsersArray } from '../usersList'
+import { UsersArray } from '../usersList';
+import {HttpClient} from "@angular/common/http";
+import {environment} from "../../../../environments/environment";
+import {Observable} from "rxjs";
 
 @Injectable({
     providedIn: 'root'
@@ -9,13 +12,20 @@ import { UsersArray } from '../usersList'
 
 export class UsersService{
 
-	public usersList: UserModel[] = UsersArray;
+	public usersList!: UserModel[];
 	public user!: UserModel;
 	public userId: number = 2;
 
 
+
+	constructor(private http: HttpClient) {}
+
+
+ngOnInit(){
+
+	}	
+
 	addUser(userCreateForm: FormGroup){
-		console.log('UsersService', this.userId)
 		this.usersList.push(new UserModel(
 			this.userId,
 			userCreateForm.value.nickName,
@@ -30,9 +40,7 @@ export class UsersService{
 
 	}
 
-
 	saveUserEdit(userId:number, userEditForm:FormGroup){
-		console.log(userEditForm.value)
 		this.usersList[userId].nickName = userEditForm.value.nickName;
 		this.usersList[userId].isAdmin = userEditForm.value.isAdmin;
 		this.usersList[userId].firstName = userEditForm.value.ferstName;
@@ -40,4 +48,12 @@ export class UsersService{
 		this.usersList[userId].age = userEditForm.value.age;
 		this.usersList[userId].colleges = userEditForm.value.collegeArray;
 	}
+
+	getUsersList(): Observable<any> {
+		return this.http.get(`${environment.url}/users/getUsersList`);
+
+	}
+
+
+
 }
